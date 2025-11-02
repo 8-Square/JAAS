@@ -1,20 +1,20 @@
 import time
 import keyboard
 
-def open_app(app):
+def open_app(app, numdelay):
     keyboard.press_and_release('win')
     time.sleep(0.3)
-    keyboard.write(f'{app}', delay=0.05)
-    time.sleep(0.5)
+    keyboard.write(f'{app}', delay=numdelay)
+    time.sleep(0.6)
     keyboard.press_and_release('enter')
-    time.sleep(1.1)
+    time.sleep(1.7)
 
 
 
 def notepad_initialize():
     # keyboard.write("notepad\n", delay=0.05)
     # time.sleep(1.0)
-    keyboard.write("TAAS Booting Now...\n\n", delay=0.05)
+    keyboard.write("JAAS Booting Now...\n\n", delay=0.05)
     time.sleep(0.7)
 
     # "loading" thing
@@ -31,27 +31,76 @@ def notepad_initialize():
     keyboard.write("0\n", delay=0.05)
     time.sleep(0.6)
 
-    # Deploy thing
+    # START thing
     keyboard.write("Initialization Achieved Successfully!\n\n\n", delay=0.05)
     time.sleep(1.3)
-    keyboard.write("Welcome to TAAS, ", delay=0.3)
+    keyboard.write("Welcome to JAAS, ", delay=0.3)
     time.sleep(0.5)
-    keyboard.write("Starting in...\n", delay=0.1)
-    for i in reversed(range(0, 6)):
+    keyboard.write("\n\n\nPress Enter To Start", delay=0.2)
+    keyboard.wait('enter')
+    time.sleep(0.02)
+    keyboard.write("Starting in... \n", delay=0.1)
+    time.sleep(0.3)
+    for i in reversed(range(1, 6)):
         keyboard.write(f'{i}', delay=1)
         keyboard.press_and_release('backspace')
+    keyboard.write("0", delay=0.05)
     time.sleep(0.2)
-    keyboard.write(" \n\n\n", delay=0.2)
+
+def custom_loop(key, number: int, stime):
+    for i in range(number):
+        keyboard.press_and_release(key)
+        time.sleep(stime)
+
+
+
+
+def scale_changes():
+    # Get to the scale setting
+    keyboard.press_and_release('shift+tab')
+    time.sleep(0.005)
+    keyboard.press_and_release('shift+tab, enter')
+    time.sleep(0.6)
+    # change to x175
+    custom_loop('down', 2, 0.007)
+    time.sleep(0.002)
+    keyboard.press_and_release('enter')
+
+def resolution_changes():
+    custom_loop('down', 3, 0.007)
+    time.sleep(1.9)
+    # open_app('change the resolution of the display', 0.01)
+    # keyboard.press_and_release('down, down, down, down, down, down, enter')
+    # time.sleep(1.5)
+    keyboard.press_and_release('tab, enter')
+
+def display_changes():
+    keyboard.press_and_release('tab, tab, tab, enter')
+    time.sleep(0.7)
+    keyboard.press_and_release('down, down, down, enter')
+    time.sleep(1.88)            
+
+    keyboard.press_and_release('tab, enter')
+
+
+
 
 
 def settings_salad():
-    keyboard.press_and_release('win+i')
- 
+    time.sleep(0.02)
+    resolution_changes()
+    time.sleep(1)
+    scale_changes()
+    time.sleep(3)
+    display_changes()  
+    
+
 
 if __name__ == "__main__":
     input("press ENTER to start...")
     open_app('notepad')
-    print("OPEN APP WORKING")
+    # print("OPEN APP WORKING")
     notepad_initialize()
-    print("Notepad Boot Working.")
-    # settings_salad()
+    # print("Notepad Boot Working.")
+    open_app('change the resolution of the display', 0.04)
+    settings_salad()
