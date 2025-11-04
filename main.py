@@ -1,13 +1,27 @@
 import time
 import keyboard
+import webbrowser
 
-def open_app(app, numdelay):
+def open_app(app, numdelay: float):
     keyboard.press_and_release('win')
     time.sleep(0.3)
     keyboard.write(f'{app}', delay=numdelay)
     time.sleep(0.6)
     keyboard.press_and_release('enter')
     time.sleep(1.7)
+
+def intermission():
+    time.sleep(0.02)
+    keyboard.press_and_release('alt+F4')
+
+def custom_loop(key, number: int, stime):
+    for i in range(number):
+        keyboard.press_and_release(key)
+        time.sleep(stime)
+
+
+
+
 
 
 
@@ -47,12 +61,6 @@ def notepad_initialize():
     keyboard.write("0", delay=0.05)
     time.sleep(0.2)
 
-def custom_loop(key, number: int, stime):
-    for i in range(number):
-        keyboard.press_and_release(key)
-        time.sleep(stime)
-
-
 
 
 def scale_changes():
@@ -83,24 +91,50 @@ def display_changes():
     keyboard.press_and_release('tab, enter')
 
 
-
-
-
 def settings_salad():
     time.sleep(0.02)
     resolution_changes()
     time.sleep(1)
     scale_changes()
     time.sleep(3)
-    display_changes()  
+    display_changes()
+    time.sleep(0.04)
+
+
+
+def magnify():
+    time.sleep(0.02)
+    keyboard.press_and_release('win+plus')
+    time.sleep(0.2)
+    custom_loop('win+plus', 6, 0.02)
+
+def inverted():
+    time.sleep(0.02)
+    custom_loop('ctrl+alt+i', 5, 0.05)
+    time.sleep(0.2)
     
+def screen_salad():
+    time.sleep(0.02)
+    magnify()
+    time.sleep(1.0)
+    inverted()
+
+def aftermath():
+    time.sleep(0.02)
+    webbrowser.open_new_tab('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+
+
 
 
 if __name__ == "__main__":
     input("press ENTER to start...")
-    open_app('notepad')
+    open_app('notepad', 0.09)
     # print("OPEN APP WORKING")
     notepad_initialize()
+    intermission()
     # print("Notepad Boot Working.")
     open_app('change the resolution of the display', 0.04)
     settings_salad()
+    intermission()
+    screen_salad()
+    aftermath()
