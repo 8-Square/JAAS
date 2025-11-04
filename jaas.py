@@ -48,17 +48,24 @@ def notepad_initialize():
     # START thing
     keyboard.write("Initialization Achieved Successfully!\n\n\n", delay=0.05)
     time.sleep(1.3)
-    keyboard.write("Welcome to JAAS, ", delay=0.3)
+    keyboard.write("Welcome to JAAS, ", delay=0.2)
     time.sleep(0.5)
-    keyboard.write("\n\n\nPress Enter To Start", delay=0.2)
-    keyboard.wait('enter')
+    keyboard.write("\n\n\nPress Enter To Start or Escape to Quit ", delay=0.09)
+    key_pressed = keyboard.read_key()
+    if key_pressed == 'escape':
+        print("EXITING")
+        exit()
+    elif key_pressed == 'enter':
+        print("ENTERED")
+        pass
     time.sleep(0.02)
     keyboard.write("Starting in... \n", delay=0.1)
     time.sleep(0.3)
     for i in reversed(range(1, 6)):
         keyboard.write(f'{i}', delay=1)
+        time.sleep(0.01)
         keyboard.press_and_release('backspace')
-    keyboard.write("0", delay=0.05)
+    keyboard.write("0", delay=0.06)
     time.sleep(0.2)
 
 
@@ -131,10 +138,10 @@ if __name__ == "__main__":
     open_app('notepad', 0.09)
     # print("OPEN APP WORKING")
     notepad_initialize()
-    intermission()
+    # intermission()
     # print("Notepad Boot Working.")
-    open_app('change the resolution of the display', 0.04)
-    settings_salad()
-    intermission()
-    screen_salad()
-    aftermath()
+    # open_app('change the resolution of the display', 0.04)
+    # settings_salad()
+    # intermission()
+    # screen_salad()
+    # aftermath()
