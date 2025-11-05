@@ -112,8 +112,8 @@ def settings_salad():
 def magnify():
     time.sleep(0.02)
     keyboard.press_and_release('win+plus')
-    time.sleep(0.2)
-    custom_loop('win+plus', 6, 0.02)
+    time.sleep(0.7)
+    custom_loop('win+plus', 6, 0.06)
 
 def inverted():
     time.sleep(0.02)
@@ -138,10 +138,10 @@ if __name__ == "__main__":
     open_app('notepad', 0.09)
     # print("OPEN APP WORKING")
     notepad_initialize()
-    # intermission()
+    intermission()
     # print("Notepad Boot Working.")
-    # open_app('change the resolution of the display', 0.04)
-    # settings_salad()
-    # intermission()
-    # screen_salad()
-    # aftermath()
+    open_app('change the resolution of the display', 0.04)
+    settings_salad()
+    intermission()
+    screen_salad()
+    aftermath()
