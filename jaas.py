@@ -11,8 +11,9 @@ def open_app(app, numdelay: float):
     time.sleep(1.7)
 
 def intermission():
-    time.sleep(0.02)
+    time.sleep(0.2)
     keyboard.press_and_release('alt+F4')
+    time.sleep(0.09)
 
 def custom_loop(key, number: int, stime):
     for i in range(number):
@@ -22,18 +23,15 @@ def custom_loop(key, number: int, stime):
 
 
 
-
-
-
 def notepad_initialize():
-    # keyboard.write("notepad\n", delay=0.05)
-    # time.sleep(1.0)
     keyboard.write("JAAS Booting Now...\n\n", delay=0.05)
     time.sleep(0.7)
 
     # "loading" thing
     for i in range(30):
         keyboard.write("/", delay=0.04)
+    time.sleep(0.1)
+    keyboard.write("0", delay=0.05)
     time.sleep(0.2)
     keyboard.press_and_release('home')
     keyboard.write("D")
@@ -41,18 +39,18 @@ def notepad_initialize():
         keyboard.press_and_release('delete')
         time.sleep(0.09)
         keyboard.write("-")
-    time.sleep(0.1)
-    keyboard.write("0\n", delay=0.05)
-    time.sleep(0.6)
+    time.sleep(0.2)
+    keyboard.press_and_release('end')
+    time.sleep(0.4)
 
     # START thing
-    keyboard.write("Initialization Achieved Successfully!\n\n\n", delay=0.05)
+    keyboard.write("\nInitialization Achieved Successfully!\n\n\n", delay=0.05)
     time.sleep(1.3)
     keyboard.write("Welcome to JAAS, ", delay=0.2)
     time.sleep(0.5)
-    keyboard.write("\n\n\nPress Enter To Start or Escape to Quit ", delay=0.09)
+    keyboard.write("\n\nPress Enter To Start or Escape to Quit ", delay=0.09)
     key_pressed = keyboard.read_key()
-    if key_pressed == 'escape':
+    if key_pressed == 'esc':
         print("EXITING")
         exit()
     elif key_pressed == 'enter':
@@ -60,10 +58,14 @@ def notepad_initialize():
         pass
     time.sleep(0.02)
     keyboard.write("Starting in... \n", delay=0.1)
-    time.sleep(0.3)
+    time.sleep(0.5)
+    keyboard.press_and_release('spacebar')
+    time.sleep(0.04)
+    keyboard.press_and_release('home')
+    time.sleep(0.5)
     for i in reversed(range(1, 6)):
-        keyboard.write(f'{i}', delay=1)
-        time.sleep(0.01)
+        keyboard.write(f'{i}', delay=0.9)
+        time.sleep(0.05)
         keyboard.press_and_release('backspace')
     keyboard.write("0", delay=0.06)
     time.sleep(0.2)
@@ -97,7 +99,6 @@ def display_changes():
 
     keyboard.press_and_release('tab, enter')
 
-
 def settings_salad():
     time.sleep(0.02)
     resolution_changes()
@@ -108,7 +109,6 @@ def settings_salad():
     time.sleep(0.04)
 
 
-
 def magnify():
     time.sleep(0.02)
     keyboard.press_and_release('win+plus')
@@ -117,7 +117,7 @@ def magnify():
 
 def inverted():
     time.sleep(0.02)
-    custom_loop('ctrl+alt+i', 5, 0.05)
+    custom_loop('ctrl+alt+i', 5, 0.4)
     time.sleep(0.2)
     
 def screen_salad():
@@ -125,6 +125,7 @@ def screen_salad():
     magnify()
     time.sleep(1.0)
     inverted()
+
 
 def aftermath():
     time.sleep(0.02)
@@ -134,11 +135,10 @@ def aftermath():
 
 
 if __name__ == "__main__":
-    input("press ENTER to start...")
+    # input("press ENTER to start...")
     open_app('notepad', 0.09)
     # print("OPEN APP WORKING")
     notepad_initialize()
-    intermission()
     # print("Notepad Boot Working.")
     open_app('change the resolution of the display', 0.04)
     settings_salad()
