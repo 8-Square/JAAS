@@ -64,9 +64,10 @@ def notepad_initialize():
     keyboard.press_and_release('home')
     time.sleep(0.5)
     for i in reversed(range(1, 6)):
-        keyboard.write(f'{i}', delay=0.9)
-        time.sleep(0.05)
+        keyboard.write(f'{i}', delay=0.8)
+        time.sleep(0.15)
         keyboard.press_and_release('backspace')
+        time.sleep(0.05)
     keyboard.write("0", delay=0.06)
     time.sleep(0.2)
 
