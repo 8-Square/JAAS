@@ -18,6 +18,6 @@ To run: just run jaas.py
   - change display orientation to landscape (default)
 
 ## Demo Video
-[Click Here]](https://hc-cdn.hel1.your-objectstorage.com/s/v3/d205fb6bf9824e2395b6074457cd096ed5e2f765_screen_recording_2025-11-12_073545.mp4)
+[Click Here](https://hc-cdn.hel1.your-objectstorage.com/s/v3/d205fb6bf9824e2395b6074457cd096ed5e2f765_screen_recording_2025-11-12_073545.mp4)
 
 https://hc-cdn.hel1.your-objectstorage.com/s/v3/d205fb6bf9824e2395b6074457cd096ed5e2f765_screen_recording_2025-11-12_073545.mp4
