@@ -93,8 +93,11 @@ def resolution_changes():
     keyboard.press_and_release('tab, enter')
 
 def display_changes():
-    keyboard.press_and_release('tab, tab, tab, enter')
-    time.sleep(0.7)
+    time.sleep(0.3)
+    custom_loop('tab', 3, 0.01)
+    time.sleep(0.07)
+    keyboard.press_and_release('enter')
+    time.sleep(0.9)
     keyboard.press_and_release('down, down, down, enter')
     time.sleep(1.88)            
 
@@ -133,16 +136,73 @@ def aftermath():
     webbrowser.open_new_tab('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
 
 
+def rev_intermission():
+    time.sleep(0.5)
+    open_app('change the resolution of the display', 0.1)
+    time.sleep(0.5)
+    rev_res_changes()
+    time.sleep(0.3)
+    rev_scale_changes()
+    time.sleep(0.3)
+    open_app('change the resolution of the display', 0.1)
+    time.sleep(0.3)
+    rev_display_changes()
 
+def rev_res_changes():
+    time.sleep(0.4)
+    keyboard.press_and_release('enter')
+    time.sleep(0.2)
+    custom_loop('up', 7, 0.002)
+    time.sleep(0.2)
+    keyboard.press_and_release('enter')
+    time.sleep(2.0)
+    keyboard.press_and_release('tab, enter')
+    time.sleep(5)
+
+def rev_scale_changes():
+    time.sleep(0.2)
+    keyboard.press_and_release('shift+tab')
+    time.sleep(0.03)
+    keyboard.press_and_release('shift+tab')
+    time.sleep(0.1)
+    keyboard.press_and_release('enter')
+    time.sleep(0.6)
+    custom_loop('up', 1, 0.007)
+    time.sleep(0.002)
+    keyboard.press_and_release('enter')
+
+def rev_display_changes():
+    time.sleep(0.2)
+    keyboard.press_and_release('tab, enter')
+    time.sleep(0.9)
+    custom_loop('up', 3, 0.01)
+    time.sleep(0.1)
+    keyboard.press_and_release('enter')
+    time.sleep(1.9)
+
+    keyboard.press_and_release('tab, enter')
+
+
+
+
+def rev_magnifier():
+    time.sleep(0.2)
+    keyboard.press_and_release('win+esc')
+    time.sleep(0.7)
 
 if __name__ == "__main__":
     # input("press ENTER to start...")
-    open_app('notepad', 0.09)
-    # print("OPEN APP WORKING")
-    notepad_initialize()
-    # print("Notepad Boot Working.")
+    # open_app('notepad', 0.09)
+    # # print("OPEN APP WORKING")
+    # notepad_initialize()
+    # # print("Notepad Boot Working.")
     open_app('change the resolution of the display', 0.04)
     settings_salad()
     intermission()
     screen_salad()
     aftermath()
+    time.sleep(15.5)
+    rev_magnifier() 
+    rev_intermission()
+    
+
